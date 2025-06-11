@@ -21,13 +21,11 @@ else:
     
 ###########Problema 2: Verificador de Ano Bissexto######################
 
-ano_s = input("Digite um ano qualquer d.C.: ")
+# Versão Aprimorada do Problema 2
+ano = int(input("Digite um ano qualquer d.C.: ")) # Usando int()
 
-ano=float(ano_s)
-
-if ano % 4 == 0 and ano % 100 != 0:
-    print(f"{ano_s} é ano bissexto.")
-elif ano % 400 == 0:
-    print(f"{ano_s} é ano bissexto.")
+# A condição (A e B) ou (C) captura toda a regra em uma linha
+if (ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0):
+    print(f"O ano {ano} é bissexto.")
 else:
-    print(f"{ano_s} é não ano bissexto.")
+    print(f"O ano {ano} não é bissexto.") # Frase um pouco mais natural
