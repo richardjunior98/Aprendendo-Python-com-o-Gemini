@@ -1,21 +1,18 @@
-########### Problema 1: Calculadora Simples de Juros Compostos ##################
+# Versão Aprimorada do Problema 1
+print("### Calculadora de Juros Compostos ###")
 
-nome=input("Nome do cliente: ")
-dinheiro=input("Capital inicial, em reais, do usuário (valor em dinheiro para investir): ")
-print(f"{nome} investirá {dinheiro} reais no Nosso Banco.")
+capital_inicial = float(input("Digite o capital inicial (R$): "))
+taxa_mensal_percentual = float(input("Digite a taxa de juros mensal (%): "))
+tempo_meses = int(input("Digite o número de meses: "))
 
-juros=input("Taxa de juros mensal: ")
-juros_float=float(juros)
-juros_float=juros_float*100
-tempo=input("Número de meses que o dinheiro ficará investido: ")
-print(f"O dinheiro ficará investido durante {tempo} meses sob uma taxa de juros de {juros_float}%")
+# Converte a taxa para o formato decimal para usar na fórmula
+taxa_mensal_decimal = taxa_mensal_percentual / 100
 
-juros_float=juros_float/100
-dinheiro_float=float(dinheiro)
-tempo_float=float(tempo)
-montante=dinheiro_float*(1+juros_float)**tempo_float
+# Calcula o montante usando a fórmula
+montante = capital_inicial * (1 + taxa_mensal_decimal) ** tempo_meses
 
-print(f"O valor final do investimento será de R$ {montante}")
+# Exibe o resultado final formatado
+print(f"\nO valor final do investimento será de R$ {montante:.2f}")
 
 ########### Problema 2: Gerador de Nome de Usuário ##################
 nome=input("Primeiro nome do usuário: ")
