@@ -3,6 +3,8 @@
 Meu intuito é testar o Gemini Google 2.5 Pro (preview) como um expert em Python e como meu professor para me tornar um expert nesta linguagem de programa e
 poder resolver, principalmente, o problema do meu doutorado.
 
+ACOMPANHE AS AULAS POR AQUI: https://g.co/gemini/share/5d694bbc067e
+
 Minhas ideia é fazer aulas diárias com ele, pelo menos, de segunda a sexta. Irei postar as aulas e correções dele conforme "combinei" com a IA.
 
 Meu prompt começou com a seguinte mensagem: 
