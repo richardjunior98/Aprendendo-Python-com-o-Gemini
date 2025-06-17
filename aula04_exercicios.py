@@ -11,13 +11,18 @@ while True:
         print(f"A lista agora tem {len(tarefas)} tarefas.")
         for i, tarefa in enumerate(tarefas):
             print(f"{i+1}. {tarefa}")
-    elif escolha==2:
-        if len(tarefas)==0:
-            print(f"Não há tarefas ainda. Aperte 1 para adicionar alguma ou três para sair.")
-        tarefa_minus=int(input(f"Digitar o número da tarefa a ser removida da lista: "))
-        tarefas.pop(tarefa_minus-1)
-        print(f"Item removido: {tarefa_minus}")
-        print(f"A lista agora tem {len(tarefas)} tarefas.")
+    elif escolha == 2:
+        if len(tarefas) == 0:
+            print("A lista de tarefas está vazia.")
+        else:
+            num_tarefa_remover = int(input("Digitar o número da tarefa a ser removida: "))
+            # Verifica se o número digitado é válido
+            if 1 <= num_tarefa_remover <= len(tarefas):
+                # Captura o texto da tarefa removida
+                tarefa_removida = tarefas.pop(num_tarefa_remover - 1)
+                print(f"Tarefa '{tarefa_removida}' foi removida com sucesso.")
+            else:
+                print("Número de tarefa inválido.")
         for i, tarefa in enumerate(tarefas):
             print(f"{i+1}. {tarefa}")
     elif escolha==3:
@@ -28,15 +33,22 @@ while True:
     
 ###########Problema 2: Coletor e Analisador de Dados de Otimização######################
 
+# Versão Aprimorada (com try-except)
 tempos = []
-
 while True:
-    print("Digite 'fim' para parar!")
-    time=input(f"Insira o tempo de execução com até uma casa decimal (usar ponto antes do número decimal): ")
-    if time != 'fim':
-        tempos.append(float(time))
-    else:
+    entrada = input("Insira um tempo de execução (ou 'fim' para parar): ")
+
+    if entrada.lower() == 'fim':
         break
+
+    try:
+        # Tenta converter a entrada para float
+        tempo_float = float(entrada)
+        tempos.append(tempo_float)
+        print(f"Tempo {tempo_float}s adicionado.")
+    except ValueError:
+        # Se a conversão falhar, avisa o usuário e continua o laço
+        print("Entrada inválida. Por favor, digite um número ou 'fim'.")
 
 print(f"Número de rodadas= {len(tempos)}.")
 print(f"Tempo de execução mais rápido= {min(tempos)}.")
