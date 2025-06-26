@@ -3,12 +3,19 @@ def calcular_montante(capital, taxa_decimal, meses):
     montante=capital*(1+taxa_decimal)**meses
     return montante
 
-capital = float(input("Digite o capital inicial (R$): "))
-taxa_decimal = float(input("Digite a taxa de juros mensal (%): "))
-meses = int(input("Digite o número de meses: "))
+# Pequeno ajuste na parte principal do script
+print("--- Calculadora de Juros ---")
+capital_usr = float(input("Digite o capital inicial (R$): "))
+taxa_percentual_usr = float(input("Digite a taxa de juros mensal (ex: 0.5 para 0.5%): "))
+meses_usr = int(input("Digite o número de meses: "))
 
-valor=calcular_montante(capital, taxa_decimal, meses)
-print(f"\nO valor final do montante será de R$ {valor:.2f}")
+# A conversão acontece AQUI, antes de chamar a função
+taxa_decimal_calculo = taxa_percentual_usr / 100
+
+# A função é chamada com os dados já tratados
+montante_final = calcular_montante(capital_usr, taxa_decimal_calculo, meses_usr)
+
+print(f"\nO valor final do montante será de R$ {montante_final:.2f}")
 
 ########### Problema 2: O Analisador de Dados como uma Função ##################
 def analisar_dados(lista_de_valores):
@@ -44,5 +51,16 @@ while True:
         # Se a conversão falhar, avisa o usuário e continua o laço
         print("Entrada inválida. Por favor, digite um número ou 'fim'.")
         
-analise=analisar_dados(tempos)
-print(analise)
+# Na parte principal do script, após o laço:
+resultados = analisar_dados(tempos)
+
+# Primeiro, verificamos se a análise foi bem-sucedida
+if resultados: # Se 'resultados' não for None
+    print("\n--- Análise dos Tempos de Execução ---")
+    print(f"Número de Rodadas: {resultados['rodadas']}")
+    print(f"Tempo Mínimo: {resultados['minimo']:.2f}s")
+    print(f"Tempo Máximo: {resultados['maximo']:.2f}s")
+    print(f"Soma Total dos Tempos: {resultados['soma']:.2f}s")
+    print(f"Tempo Médio: {resultados['media']:.2f}s")
+else:
+    print("\nNenhum dado foi inserido para análise.")
